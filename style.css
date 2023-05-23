@@ -1,0 +1,54 @@
+body {
+    background-color: #f2f2f2;
+  }
+  
+  div {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+  }
+  
+  form {
+    display: inline-block;
+    vertical-align: top;
+    width: 500px;
+  }
+  
+  table {
+    display: inline-block;
+    vertical-align: top;
+    border-collapse: collapse;
+    padding: 20px;
+  }
+  
+  th {
+    background-color: #d9d9d9;
+  }
+  
+  button[name="enviar"] {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 500px;
+    margin-right: 10px;
+  }
+  
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    width: 500px;
+  }
+
+ #nome, #pais {
+    width: 500px;
+  }
+  
