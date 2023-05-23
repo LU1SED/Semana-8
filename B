@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo de Lista com Possibilidade de Adicionar Itens</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                color: #333;
+                margin: 20px;
+            }
+
+            ul {
+                margin-top: 0;
+                padding-left: 20px;
+            }
+
+            input[type="text"] {
+                font-size: 16px;
+                padding: 5px;
+                margin-right: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            input[type="button"],
+            a.excluir-item {
+                font-size: 16px;
+                padding: 5px 10px;
+                background-color: #0077cc;
+                color: #fff;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+            input[type="button"]:hover,
+            a.excluir-item:hover {
+                background-color: #005fa3;
+            }
+        </style>
+        <script>
+            function adicionarItem() {
+                // Obter o valor do input
+                var novoItem = document
+                    .getElementById("novo-item")
+                    .value;
+
+                // Criar um novo elemento de lista
+                var novoItemLista = document.createElement("li");
+
+                // Criar um novo link para excluir o item
+                var linkExcluirItem = document.createElement("a");
+                linkExcluirItem.href = "#";
+                linkExcluirItem.className = "excluir-item";
+                linkExcluirItem.appendChild(document.createTextNode("Excluir"));
+                linkExcluirItem.onclick = function () {
+                    this
+                        .parentNode
+                        .parentNode
+                        .removeChild(this.parentNode);
+                    return false;
+                };
+
+                // Adicionar o novo elemento de lista e o link de exclusão à lista existente
+                novoItemLista.appendChild(document.createTextNode(novoItem + " "));
+                novoItemLista.appendChild(linkExcluirItem);
+                var listaExistente = document.getElementById("minha-lista");
+                listaExistente.appendChild(novoItemLista);
+
+                // Limpar o valor do input para permitir que um novo item seja adicionado
+                document
+                    .getElementById("novo-item")
+                    .value = "";
+            }
+
+            function limparLista() {
+                // Obter a lista existente
+                var listaExistente = document.getElementById("minha-lista");
+
+                // Remover todos os elementos da lista
+                while (listaExistente.firstChild) {
+                    listaExistente.removeChild(listaExistente.firstChild);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Minha Lista</h1>
+        <ul id="minha-lista">
+            <li>Item 1
+                <a href="#" class="excluir-item">Excluir</a>
+            </li>
+            <li>Item 2
+                <a href="#" class="excluir-item">Excluir</a>
+            </li>
+            <li>Item 3
+                <a href="#" class="excluir-item">Excluir</a>
+            </li>
+        </ul>
+
+        <label for="novo-item">Adicionar novo item:</label>
+        <input
+            type="text"
+            id="novo-item"
+            name="novo-item"
+            placeholder="Digite o nome do novo item...">
+        <input type="button" onclick="adicionarItem()" value="Adicionar">
+        <input type="button" onclick="limparLista()" value="Limpar Lista">
+
+    </body>
+</html>
